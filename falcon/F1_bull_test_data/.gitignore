@@ -1,0 +1,7 @@
+*.gz
+*.fasta
+*.fastq
+*.bam
+*.log
+*.out
+*.sif

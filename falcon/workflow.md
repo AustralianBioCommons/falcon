@@ -1,7 +1,7 @@
 # Falcon workflow (WIP)
-This workflow documents the steps required for performing de novo assembly of the fat-tailed Dunnart genome using Falcon on Pawsey's HPC system Zeus.
+This workflow covers the steps required for performing de novo assembly of the fat-tailed Dunnart genome using Falcon on Pawsey's HPC system Zeus. The original Falcon documentation that this workflow is derived from can be found [here](https://github.com/PacificBiosciences/pb-assembly#tutorial).
 
-## Download data
+## Download raw sequencing data
 
 Create a directory for the workflow, then download the raw reads in their fasta and bam formats.
 
@@ -57,12 +57,22 @@ For example:
 ### Check job progress
 
 Jobs left:
+    
+    >ls 0-rawreads/daligner-chunks/ | wc -l
 
 Jobs completed:
 
+    >find 0-rawreads/daligner-runs/j_*/uow-00 -name "daligner.done" | wc -l
+
 Stats for reads and pre-assembled reads:
 
+    >singularity exec pb-assembly_0.0.8--0.sif DBstats raw_reads.db
+
+    >singularity exec pb-assembly_0.0.8--0.sif DBstats 1-preads_ovl/build/preads.db 
+
 Check pre-assembly performance:
+
+    >cat 0-rawreads/report/pre_assembly_stats.json
 
 Check assembly performance:
 

@@ -6,3 +6,5 @@ Reference genome assembly of the Fat-tailed Dunnart ([*Sminthopsis crassicaudata
 - [Falcon pb-assembly v0.0.8--0](https://github.com/PacificBiosciences/pb-assembly) container from [Bioconda](https://bioconda.github.io/recipes/pb-assembly/README.html?highlight=pb-assembly#recipe-Recipe%20&#x27;pb-assembly&#x27;)
 - Singularity container engine
 
+## Acknowledgements
+We would like to acknowledge the contribution of the Oz Mammals Genomics Initiative [consortium](https://ozmammalsgenomics.com/consortium/) in the generation of data used for the Dunnart reference genome assembly. The Initiative is supported by funding from Bioplatforms Australia through the Australian Government National Collaborative Research Infrastructure Strategy (NCRIS).

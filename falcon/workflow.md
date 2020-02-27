@@ -6,6 +6,7 @@ This workflow covers the steps required for performing de novo assembly of the f
 Create a directory for the workflow, then download the raw reads in their fasta and bam formats.
 
     mkdir falcon-dunnart
+    cd falcon-dunnart
 
 ## Pull PacBio containers
 

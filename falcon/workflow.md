@@ -43,7 +43,7 @@ Run the sbatch_run.sh script for a SLURM srun job. This script will execute the 
 
     >sbatch sbatch_run.sh
 
-`sbatch_run.sh`:
+sbatch_run.sh:
 
     #!/bin/bash
 
@@ -87,8 +87,8 @@ Run the sbatch_unzip.sh script for a SLURM srun job.
 
     >sbatch sbatch_unzip.sh
 
-`sbatch_unzip.sh`:
-#!/bin/bash
+sbatch_unzip.sh:
+    #!/bin/bash
 
     #SBATCH --account=pawsey0002
     #SBATCH --partition=workq
@@ -122,8 +122,8 @@ Run the sbatch_phase.sh script for a SLURM srun job.
 
     >sbatch sbatch_phase.sh
 
-`sbatch_phase.sh`:
-#!/bin/bash
+sbatch_phase.sh:
+    #!/bin/bash
 
     #SBATCH --account=pawsey0002
     #SBATCH --partition=workq

@@ -37,11 +37,13 @@ Copy the following default config files from the pb-assembly directory to your w
 
 Once they are modified accordingly, Falcon can then be run.
 
-## Run the first Falcon command
+## Run FALCON
 
-Create an sbatch script for a SLURM srun job. This script will include the first Falcon command, which is run using the `pb-assembly_0.0.8--0.sif` container.
+Run the sbatch_run.sh script for a SLURM srun job. This script will execute the first Falcon command, which is performed using the `pb-assembly_0.0.8--0.sif` container.
 
-For example:
+    >sbatch sbatch_run.sh
+
+`sbatch_run.sh`:
 
     #!/bin/bash
 
@@ -78,3 +80,69 @@ Check pre-assembly performance:
 Check assembly performance:
 
     >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 2-asm-falcon/p_ctg.fasta
+
+## Run FALCON-Unzip
+
+Run the sbatch_unzip.sh script for a SLURM srun job.
+
+    >sbatch sbatch_unzip.sh
+
+`sbatch_unzip.sh`:
+#!/bin/bash
+
+    #SBATCH --account=pawsey0002
+    #SBATCH --partition=workq
+    #SBATCH --nodes=2
+    #SBATCH --cpus-per-task=28
+
+    module load singularity
+
+    // to ensure log file from fc_run is not overwritten by this step
+    mv all.log all0.log
+
+    srun singularity exec pb-assembly_0.0.8--0.sif fc_unzip.py fc_unzip.cfg &> run1.std
+
+### Check haplotype resolution
+
+    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 3-unzip/all_p_ctg.fa 
+
+    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 3-unzip/all_h_ctg.fa
+
+    >head 3-unzip/all_h_ctg.paf 
+
+### Check phase polishing
+
+    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 4-polish/cns-output/cns_p_ctg.fasta
+   
+    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 4-polish/cns-output/cns_h_ctg.fasta
+
+## Run FALCON-Phase
+
+Run the sbatch_phase.sh script for a SLURM srun job.
+
+    >sbatch sbatch_phase.sh
+
+`sbatch_phase.sh`:
+#!/bin/bash
+
+    #SBATCH --account=pawsey0002
+    #SBATCH --partition=workq
+    #SBATCH --nodes=2
+    #SBATCH --cpus-per-task=28
+
+    module load singularity
+
+    // to ensure log file from fc_run is not overwritten by this step
+    mv all.log all1.log
+
+    srun singularity exec pb-assembly_0.0.8--0.sif fc_phase.py fc_phase.cfg &> run2.std
+
+### See haplotig placement file
+   
+    >head 5-phase/placement-output/haplotig.placement
+
+### See final output stats 
+
+    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 5-phase/output/phased.0.fasta
+
+    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 5-phase/output/phased.1.fasta 

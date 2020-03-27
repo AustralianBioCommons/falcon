@@ -1,7 +1,10 @@
+falcon/*
 *.gz
 *.fasta
 *.fastq
+*.fq
 *.bam
+*.sif
 *.log
 *.out
-*.sif
+*.std

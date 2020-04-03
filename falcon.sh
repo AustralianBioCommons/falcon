@@ -5,16 +5,10 @@
 # Running it pulls the Pacific Biosciences containers to run your Falcon commands, and sets up your directory for the workflow to run.
 # It is written specifically for use on Pawsey Supercomputing resources, but can be tailored to other computing resources.
 # Change the path to your directory and raw reads here:
-dir=/group/pawsey0002/astott/dunnart/
-fasta_reads=dunnart.subreads.fasta.gz
-bam_reads=dunnart.subreads.bam
+dir=user-dir-path
+fasta_reads=dunnart-fasta.subreads.fasta.gz
+bam_reads=dunnart-bam.subreads.bam
 ###########################################################################################################################
-
-Moving raw sequencing files to dunnart/...
-mv ${fasta_reads} ${bam_reads} dunnart/
-
-Changing directory to dunnart/...
-cd dunnart
 
 Loading the Singularity module...
 module load singularity

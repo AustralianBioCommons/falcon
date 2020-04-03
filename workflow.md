@@ -1,26 +1,31 @@
 # Falcon workflow (WIP)
 This workflow covers the steps required for performing de novo assembly of the fat-tailed Dunnart genome using Falcon on Pawsey's HPC system Zeus. The original Falcon documentation that this workflow is derived from can be found [here](https://github.com/PacificBiosciences/pb-assembly#tutorial).
 
-## Download raw sequencing data
-
-You will need both the fasta and bam formats of the raw sequencing data. Download them to  your current working directory.
-
 ## Clone the Dunnart repository
 
 This directory contains the scripts and config files required for running the workflow. Clone it to your current working directory.
 
     >git clone https://github.com/audreystott/dunnart.git
+    >cd dunnart
+
+## Download your raw sequencing data
+
+You will need both the fasta and bam formats of the raw sequencing data. Download them to  your current working directory, which should be the dunnart/ directory.
 
 ## Set the variables in the run script
 
-In the cloned repository, you will find a run script `falcon.sh`. You will need to set the variables for your directory and sequencing reads. 
+In the cloned repository, you will find a run script `falcon.sh`. You will need to set the variables for your working directory and raw files. 
 
-    >cd dunnart
     >pwd
 
-In the following command, replace the words `path/to/your/directory` with the dunnart directory, then run it:
+In the following command, replace the words `path/to/your/directory` with your dunnart directory, then run it:
 
     >sed -i "s|user-dir-path|path/to/your/directory|g" falcon.sh
+
+Similar in the next command, replace the words `your-fasta-file-name` and `your-bam-file-name` with your raw file names:
+
+    >sed -i "s|dunnart-fasta|your-fasta-file-name|g" falcon.sh
+    >sed -i "s|dunnart-bam|your-bam-file-name|g" falcon.sh
 
 ## Run FALCON
 
@@ -30,7 +35,7 @@ Run the FALCON script falcon.sh. This script covers all the steps required in th
 
 ### Check job progress
 
-Meanwhile you can check the progress of the jobs.
+Meanwhile you can check the progress of your jobs.
 
 #### fc_run
 
@@ -44,9 +49,9 @@ Jobs completed:
 
 Stats for reads and pre-assembled reads:
 
-    >singularity exec pb-assembly_0.0.8--0.sif DBstats raw_reads.db
+    >singularity exec pb-assembly_0.0.8.sif DBstats raw_reads.db
 
-    >singularity exec pb-assembly_0.0.8--0.sif DBstats 1-preads_ovl/build/preads.db 
+    >singularity exec pb-assembly_0.0.8.sif DBstats 1-preads_ovl/build/preads.db 
 
 Check pre-assembly performance:
 

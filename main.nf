@@ -1,14 +1,8 @@
 #!/usr/bin/env nextflow
 dir = "user-dir"
 fasta_ch = Channel.fromPath('subreads.fasta.fofn')
-//params.bam_ch = '${dir}/subreads.bam.fofn'
-//params.hic_ch = '${dir}/F1_bull_test.HiC_R*.fastq.gz'
-//params.run_ch = '${dir}/fc_run.cfg'
-
-//fasta_ch = file(params.fasta_ch)
-//bam_ch = file(params.bam_ch)
-//hic_ch = file(params.hic_ch)
-//run_ch = file(params.run_ch)
+bam_ch = Channel.fromPath('subreads.bam.fofn')
+hic_ch = Channel.fromPath('F1_bull_test.HiC_R*.fastq.gz')
 
 process fc_run {
     input:
@@ -25,6 +19,32 @@ process fc_run {
         """
 }
 
+process fc_unzip {
+    input:
+        file x from bam_ch
 
-//fc_unzip.py fc_unzip.cfg &> run1.std
-//fc_phase.py fc_phase.cfg &> run2.std
+    output:
+        file("3-unzip/*") into unzip
+        file("4-polish/*") into polish
+
+    when:
+    -e */2-asm-falcon/p_ctg.fa
+
+    script:
+        """
+        fc_unzip.py $dir/fc_unzip.cfg &> run1.std
+        """
+}
+process fc_phase {
+
+    input:
+        file x from hic_ch
+
+    output:
+        file("5-phase/*") into phase
+
+    script:
+        """
+        fc_phase.py $dir/fc_phase.cfg &> run2.std
+        """
+}

@@ -6,26 +6,19 @@
 # It is written specifically for use on Pawsey Supercomputing resources, but can be tailored to other computing resources.
 # Change the path to your directory and raw reads here:
 dir=user-dir-path
-fasta_reads=dunnart-fasta.subreads.fasta.gz
-bam_reads=dunnart-bam.subreads.bam
+fasta_reads=dunnart-fasta
+bam_reads=dunnart-bam
 ###########################################################################################################################
 
-Loading the Singularity module...
-module load singularity
-
 Pulling PacBio pb-assembly and pb-core containers...
-srun singularity pull docker://marcodelapierre/pb-assembly:0.0.8
-srun singularty pull docker://quay.io/biocontainers/pbcore:1.7.1--py27_0
+sbatch --account=$PAWSEY_PROJECT sbatch_singularity.sh &&
 
 Creating .fofn files...
-echo '$dir/${fasta_reads}' > subreads.fasta.fofn
-echo '$dir/${bam_reads}' > subreads.bam.fofn
+echo '$dir/${fasta_reads}' > subreads.fasta.fofn &&
+echo '$dir/${bam_reads}' > subreads.bam.fofn &&
 
 Assigning directory for Nextflow...
-sed -i "s|user-dir|${dir}|g" main.nf
-
-Loading the Nextflow module...
-module load Nextflow
+sed -i "s|user-dir|${dir}|g" main.nf &&
 
 Running FALCON via Nextflow...
-nextflow run main.nf -profile zeus
+sbatch --account=$PAWSEY_PROJECT sbatch_nextflow.sh

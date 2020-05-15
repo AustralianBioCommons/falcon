@@ -22,13 +22,11 @@ process fc_run {
 process fc_unzip {
     input:
         file x from bam_ch
+        file '2-asm-falcon/all_h_ctg.fa' from asm
 
     output:
         file("3-unzip/*") into unzip
         file("4-polish/*") into polish
-
-    when:
-    -e */2-asm-falcon/p_ctg.fa
 
     script:
         """
@@ -39,7 +37,8 @@ process fc_phase {
 
     input:
         file x from hic_ch
-
+        file '4-polish/cns_h_ctg.fasta' from polish
+    
     output:
         file("5-phase/*") into phase
 

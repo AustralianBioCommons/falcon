@@ -22,7 +22,7 @@ In the following command, replace the words `path/to/your/directory` with your d
 
     >sed -i "s|user-dir-path|path/to/your/directory|g" falcon.sh
 
-Similar in the next command, replace the words `your-fasta-file-name` and `your-bam-file-name` with your raw file names:
+Similar in the next command, replace the words `your-fasta-file-name` and `your-bam-file-name` with your raw file names. Your fasta and bam file names should have a suffix .subreads.fasta.gz and .subreads.bam, respectively.
 
     >sed -i "s|dunnart-fasta|your-fasta-file-name|g" falcon.sh
     >sed -i "s|dunnart-bam|your-bam-file-name|g" falcon.sh

@@ -5,8 +5,6 @@ bam_ch = Channel.fromPath('subreads.bam.fofn')
 hic_ch = Channel.fromPath('F1_bull_test.HiC_R*.fastq.gz')
 
 process fc_run {
-    publishDir '$dir'
-
     input:
         file x from fasta_ch
 
@@ -22,15 +20,13 @@ process fc_run {
 }
 
 process fc_unzip {
-    publishDir '$dir'
-
     input:
         file x from bam_ch
         file '2-asm-falcon/all_h_ctg.fa' from asm
-
     output:
         file("3-unzip/*") into unzip
         file("4-polish/*") into polish
+
 
     script:
         """
@@ -38,12 +34,9 @@ process fc_unzip {
         """
 }
 process fc_phase {
-    publishDir '$dir'
-    
     input:
         file x from hic_ch
         file '4-polish/cns_h_ctg.fasta' from polish
-    
     output:
         file("5-phase/*") into phase
 

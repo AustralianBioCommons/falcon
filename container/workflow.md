@@ -1,4 +1,4 @@
-# Falcon workflow (WIP)
+# Falcon workflow
 This workflow covers the steps required for performing de novo assembly of the fat-tailed Dunnart genome using Falcon on Pawsey's HPC system Zeus. The original Falcon documentation that this workflow is derived from can be found [here](https://github.com/PacificBiosciences/pb-assembly#tutorial).
 
 ## Clone the Dunnart repository
@@ -25,7 +25,7 @@ In the following command, replace the words `path/to/your/directory` with your d
 Similar in the next command, replace the words `your-fasta-file-name` and `your-bam-file-name` with your raw file names. Your fasta and bam file names should have a suffix .subreads.fasta.gz and .subreads.bam, respectively.
 
     >sed -i "s|dunnart-fasta|your-fasta-file-name|g" falcon.sh
-    >sed -i "s|dunnart-bam|your-bam-file-name|g" falcon.sh
+    >sed -i "s|dunnart-bam|your-bam-file-name|g" falcon.sh 
 
 ## Run FALCON
 

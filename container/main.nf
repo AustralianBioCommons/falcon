@@ -1,12 +1,10 @@
 #!/usr/bin/env nextflow
-dir = "/group/pawsey0002/astott/dunnart"
+dir = "user-dir"
 fasta_ch = Channel.fromPath('subreads.fasta.fofn')
 bam_ch = Channel.fromPath('subreads.bam.fofn')
 hic_ch = Channel.fromPath('F1_bull_test.HiC_R*.fastq.gz')
 
 process fc_run {
-    publishDir '$dir'
-
     input:
         file x from fasta_ch
 
@@ -22,8 +20,6 @@ process fc_run {
 }
 
 process fc_unzip {
-    publishDir '$dir'
-
     input:
         file x from bam_ch
         file '2-asm-falcon/all_h_ctg.fa' from asm
@@ -38,8 +34,7 @@ process fc_unzip {
         """
 }
 process fc_phase {
-    publishDir '$dir'
-    
+
     input:
         file x from hic_ch
         file '4-polish/cns_h_ctg.fasta' from polish

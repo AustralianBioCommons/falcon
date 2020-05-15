@@ -5,7 +5,8 @@
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=28
 
+unset SBATCH_EXPORT
 module load singularity
+module load nextflow
 
-srun singularity pull docker://marcodelapierre/pb-assembly:0.0.8
-srun singularty pull docker://quay.io/biocontainers/pbcore:1.7.1--py27_0
+srun nextflow run main.nf -profile zeus

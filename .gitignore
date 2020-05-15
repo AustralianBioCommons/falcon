@@ -1,4 +1,5 @@
 falcon/*
+container/*
 *.gz
 *.fasta
 *.fastq

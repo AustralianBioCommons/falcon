@@ -19,7 +19,7 @@ module load singularity &&
 singularity pull docker://quay.io/biocontainers/pbcore:1.7.1--py27_0 &&
 
 echo 'Downloading Miniconda3 from Anaconda repo...'
-#wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &&
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &&
 
 echo '********************************************************************************************************
 

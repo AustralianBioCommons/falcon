@@ -30,14 +30,16 @@ You will need both the fasta and bam formats of the raw sequencing data. Downloa
 
 ### Set the fasta and bam file variables in the run script
 
-In the cloned repository, you will find a run script `falcon-conda.sh`. You will need to replace the words `YOUR_FASTA_FILE_NAME` and `YOUR_BAM_FILE_NAME` with your raw file names. Your fasta and bam file names should have a suffix .subreads.fasta.gz and .subreads.bam, respectively.
+In the cloned repository, you will find a run script `falcon-conda.sh`. You will need to replace the words `YOUR_FASTA_FILE_NAME` and `YOUR_BAM_FILE_NAME` with your raw filenames for the below. Your fasta and bam filenames should have a suffix .subreads.fasta.gz and .subreads.bam, respectively.
 
     >sed -i "s|dunnart-fasta|YOUR_FASTA_FILE_NAME|g" falcon-conda.sh
     >sed -i "s|dunnart-bam|YOUR_BAM_FILE_NAME|g" falcon-conda.sh 
 
 ### Set the HiC files variable in the Nextflow script
 
-Your HiC filenames should have the suffix .HiC_R1.fastq.gz or .HiC_R2.fastq.gz. Change the file names and ensure to replace the number to include both reads 1 and 2.
+Your HiC filenames should have the suffix .HiC_R1.fastq.gz or .HiC_R2.fastq.gz. 
+
+For example, if you have read.HiC_R1.fastq.gz and read.HiC_R2.fastq.gz. You will replace the words `YOUR_HIC_FILE_NAME` with read.HiC_*fastq.gz for the below.
 
     >sed -i "s|F1_bull_test.HiC_R*.fastq.gz|YOUR_HIC_FILE_NAME|g" main.nf
 

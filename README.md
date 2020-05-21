@@ -28,18 +28,22 @@ The Dunnary repository contains the scripts and config files required for runnin
 
 You will need both the fasta and bam formats of the raw sequencing data. Download them to  your current working directory, which should be the `dunnart/` directory.
 
-### Set the fasta and bam file variables in the run script
+### Set the fasta and bam filenames in the run script
 
-In the cloned repository, you will find a run script `falcon-conda.sh`. You will need to replace the words `YOUR_FASTA_FILE_NAME` and `YOUR_BAM_FILE_NAME` with your raw filenames for the below. Your fasta and bam filenames should have a suffix .subreads.fasta.gz and .subreads.bam, respectively.
+Ensure the filenames are set in the `falcon-conda.sh` script. Do so by replacing the words `YOUR_FASTA_FILE_NAME` and `YOUR_BAM_FILE_NAME` with your raw filenames for the below commands. 
 
-    >sed -i "s|dunnart-fasta|YOUR_FASTA_FILE_NAME|g" falcon-conda.sh
-    >sed -i "s|dunnart-bam|YOUR_BAM_FILE_NAME|g" falcon-conda.sh 
+Note: Your fasta and bam filenames should have a suffix .subreads.fasta.gz and .subreads.bam, respectively.
 
-### Set the HiC files variable in the Nextflow script
+    >sed -i "s|F1_bull_test.subreads.fasta.gz|YOUR_FASTA_FILE_NAME|g" falcon-conda.sh
+    >sed -i "s|F1_bull_test.subreads.bam|YOUR_BAM_FILE_NAME|g" falcon-conda.sh 
 
-Your HiC filenames should have the suffix .HiC_R1.fastq.gz or .HiC_R2.fastq.gz. 
+### Set the HiC filename in the Nextflow script
 
-For example, if you have my_sample.HiC_R1.fastq.gz and my_sample.HiC_R2.fastq.gz. You will replace the words `YOUR_HIC_FILE_NAME` with my_sample.HiC_R*.fastq.gz for the below.
+Similarly, set your HiC filename in the `falcon-conda.sh` script. 
+
+Note: The files should have the suffixes .HiC_R1.fastq.gz and .HiC_R2.fastq.gz.
+
+You will replace the words `YOUR_HIC_FILE_NAME` with your HiC filename for the below. It should look similar to this - `sample1.HiC_R*.fastq.gz`.
 
     >sed -i "s|F1_bull_test.HiC_R*.fastq.gz|YOUR_HIC_FILE_NAME|g" main.nf
 

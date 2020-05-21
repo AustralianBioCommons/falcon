@@ -4,7 +4,7 @@ bam_ch = Channel.fromPath('subreads.bam.fofn')
 hic_ch = Channel.fromPath('F1_bull_test.HiC_R*.fastq.gz')
 
 process fc_run {
-    publishDir '$dir'
+    publishDir "${dir}"
 
     input:
         file x from fasta_ch
@@ -16,12 +16,12 @@ process fc_run {
 
     script:
         """
-        fc_run $dir/fc_run.cfg
+        fc_run /group/$PAWSEY_PROJECT/$USER/dunnart/fc_run.cfg
         """
 }
 
 process fc_unzip {
-    publishDir '$dir'
+    publishDir "${dir}"
 
     input:
         file x from bam_ch
@@ -33,11 +33,11 @@ process fc_unzip {
 
     script:
         """
-        fc_unzip.py $dir/fc_unzip.cfg &> run1.std
+        fc_unzip.py /group/$PAWSEY_PROJECT/$USER/dunnart/fc_unzip.cfg &> run1.std
         """
 }
 process fc_phase {
-    publishDir '$dir'
+    publishDir "${dir}"
     
     input:
         file x from hic_ch
@@ -48,6 +48,6 @@ process fc_phase {
 
     script:
         """
-        fc_phase.py $dir/fc_phase.cfg &> run2.std
+        fc_phase.py /group/$PAWSEY_PROJECT/$USER/dunnart/fc_phase.cfg &> run2.std
         """
 }

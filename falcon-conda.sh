@@ -15,15 +15,28 @@ echo '$dir/${fasta_reads}' > subreads.fasta.fofn &&
 echo '$dir/${bam_reads}' > subreads.bam.fofn &&
 
 echo 'Pulling pb-core containers...'
-module load singularity
-singularity pull docker://quay.io/biocontainers/pbcore:1.7.1--py27_0
+module load singularity &&
+singularity pull docker://quay.io/biocontainers/pbcore:1.7.1--py27_0 &&
 
 echo 'Downloading Miniconda3 from Anaconda repo...'
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-echo 'Installation of Miniconda3 will begin soon...'
-echo 'Follow the prompts.. accept license terms...'
-echo '*****Make sure to install to /group/$PAWSEY_PROJECT/miniconda3, not /home/$USER/miniconda3*****'
-echo 'Say yes to running conda init...'
-bash Miniconda3-latest-Linux-x86_64.sh
-echo 'Miniconda3 installation done...'
-echo 'Falcon set up is complete'
+#wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &&
+
+echo '********************************************************************************************************
+
+R E A D    T H I S   
+
+Installation of Miniconda3 will begin soon...
+Follow the prompts... 
+Press ENTER... 
+Accept license terms...
+Make sure to install to /group/$PAWSEY_PROJECT/miniconda3, not /home/$USER/miniconda3
+Say yes to running conda init...
+
+********************************************************************************************************'
+
+bash Miniconda3-latest-Linux-x86_64.sh &&
+echo 'Miniconda3 installation done... removing Miniconda3-latest-Linux-x86_64.sh...'
+rm Miniconda3-latest-Linux-x86_64.sh &&
+
+echo '********************************************************************************************************
+Falcon set up is complete'

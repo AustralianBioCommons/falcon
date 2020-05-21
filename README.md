@@ -6,16 +6,19 @@ The tools used in this workflow are:
 - [Pacific Biosciences assembly tool suite](https://github.com/PacificBiosciences/pb-assembly)
 - Nextflow v19.10.0
 - Singularity v3.5.2
-
-## Third party tools/dependencies
 - Miniconda3
 
-## Workflow Install
-This workflow covers all the steps (including tools and dependencies) required for performing de novo assembly of the fat-tailed Dunnart genome using Falcon on Pawsey's HPC system Zeus. The original Falcon documentation that this workflow is derived from can be found [here](https://github.com/PacificBiosciences/pb-assembly#tutorial).
+## Installation and set up
+The following steps cover installation of the tools required for performing the de novo assembly of the fat-tailed Dunnart genome using Falcon on Pawsey's HPC system Zeus. The original Falcon documentation that this workflow is derived from can be found [here](https://github.com/PacificBiosciences/pb-assembly#tutorial).
+
+### Start an interactive SLURM session
+On Zeus, you will need to run your jobs on a work node; to do so, start an interactive session as follows:
+
+    >salloc -n 1 -t 1:00:00
 
 ### Clone the Dunnart repository
 
-This directory contains the scripts and config files required for running the workflow. Clone it to your current working directory, e.g. /group/$PAWSEY_PROJECT/$USER
+The Dunnary repository contains the scripts and config files required for running the workflow. Clone it to your current working directory, e.g. /group/$PAWSEY_PROJECT/$USER
 
     >cd /group/$PAWSEY_PROJECT/$USER
     >git clone https://github.com/audreystott/dunnart.git
@@ -32,11 +35,23 @@ In the cloned repository, you will find a run script `falcon-conda.sh`. You will
     >sed -i "s|dunnart-fasta|your-fasta-file-name|g" falcon-conda.sh
     >sed -i "s|dunnart-bam|your-bam-file-name|g" falcon-conda.sh 
 
-### Run FALCON
+### Set up FALCON
 
-Run the FALCON script falcon-conda.sh. This script covers all the steps required in the FALCON pipeline for fc_run, fc_unzip, and fc_phase.
+Run the FALCON script falcon-conda.sh.
 
     >bash falcon-conda.sh    
+
+### Exit the SLURM interactive session
+
+Once the FALCON set up script has completed running, exit the session.
+
+    >exit
+
+## Run FALCON
+
+Run FALCON with the sbatch script as follows:
+
+    >sbatch --account=$PAWSEY_PROJECT sbatch_nextflow.sh
 
 ## Tutorial
 ### Check job progress
@@ -97,7 +112,7 @@ See final output stats
     >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 5-phase/output/phased.1.fasta 
 
 ## Workflow infrastructure requirements
-- [Pawsey Zeus](www.pawsey.org/systems/zeus)
+- [Pawsey Zeus](www.pawsey.org.au/systems/zeus)
 - More to add
 
 ## Acknowledgements

@@ -1,5 +1,4 @@
 #!/usr/bin/env nextflow
-dir = "/group/pawsey0002/astott/dunnart"
 fasta_ch = Channel.fromPath('subreads.fasta.fofn')
 bam_ch = Channel.fromPath('subreads.bam.fofn')
 hic_ch = Channel.fromPath('F1_bull_test.HiC_R*.fastq.gz')

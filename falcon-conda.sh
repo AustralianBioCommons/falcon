@@ -10,9 +10,6 @@ fasta_reads=dunnart-fasta
 bam_reads=dunnart-bam
 ###########################################################################################################################
 
-echo 'Requesting a Slurm interactive session...'
-salloc -n 1 -t 1:00:00
-
 echo 'Creating .fofn files...'
 echo '$dir/${fasta_reads}' > subreads.fasta.fofn &&
 echo '$dir/${bam_reads}' > subreads.bam.fofn &&
@@ -28,10 +25,5 @@ echo 'Follow the prompts.. accept license terms...'
 echo '*****Make sure to install to /group/$PAWSEY_PROJECT/miniconda3, not /home/$USER/miniconda3*****'
 echo 'Say yes to running conda init...'
 bash Miniconda3-latest-Linux-x86_64.sh
-echo 'Miniconda3 installation is complete.'
-
-echo 'Exiting Slurm interactive session...'
-exit
-
-echo 'Running FALCON via Nextflow...'
-sbatch --account=$PAWSEY_PROJECT sbatch_nextflow.sh
+echo 'Miniconda3 installation done...'
+echo 'Falcon set up is complete'

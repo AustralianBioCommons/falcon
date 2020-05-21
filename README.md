@@ -112,7 +112,7 @@ See final output stats
     >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 5-phase/output/phased.1.fasta 
 
 ## Workflow infrastructure requirements
-- [Pawsey Zeus](www.pawsey.org.au/systems/zeus)
+- Pawsey [Zeus](https://www.pawsey.org.au/systems/zeus)
 - More to add
 
 ## Acknowledgements

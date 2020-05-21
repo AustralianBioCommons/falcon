@@ -39,7 +39,7 @@ In the cloned repository, you will find a run script `falcon-conda.sh`. You will
 
 Your HiC filenames should have the suffix .HiC_R1.fastq.gz or .HiC_R2.fastq.gz. 
 
-For example, if you have read.HiC_R1.fastq.gz and read.HiC_R2.fastq.gz. You will replace the words `YOUR_HIC_FILE_NAME` with read.HiC_*fastq.gz for the below.
+For example, if you have my_sample.HiC_R1.fastq.gz and my_sample.HiC_R2.fastq.gz. You will replace the words `YOUR_HIC_FILE_NAME` with my_sample.HiC_R*.fastq.gz for the below.
 
     >sed -i "s|F1_bull_test.HiC_R*.fastq.gz|YOUR_HIC_FILE_NAME|g" main.nf
 

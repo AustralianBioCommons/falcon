@@ -39,7 +39,7 @@ Note: Your fasta and bam filenames should have a suffix .subreads.fasta.gz and .
 
 ### Set the HiC filename in the Nextflow script
 
-Similarly, set your HiC filename in the `falcon-conda.sh` script. 
+Set your HiC filename in the Nextflow `main.nf` script. 
 
 Note: The files should have the suffixes .HiC_R1.fastq.gz and .HiC_R2.fastq.gz.
 

@@ -16,7 +16,6 @@ process fc_run {
 
     script:
         """
-        source /group/$PAWSEY_PROJECT/$USER/miniconda3/bin/activate
         fc_run /group/$PAWSEY_PROJECT/$USER/dunnart/fc_run.cfg
         """
 }
@@ -34,7 +33,6 @@ process fc_unzip {
 
     script:
         """
-        source /group/$PAWSEY_PROJECT/$USER/miniconda3/bin/activate
         fc_unzip.py /group/$PAWSEY_PROJECT/$USER/dunnart/fc_unzip.cfg &> run1.std
         """
 }
@@ -50,7 +48,6 @@ process fc_phase {
 
     script:
         """
-        source /group/$PAWSEY_PROJECT/$USER/miniconda3/bin/activate
         fc_phase.py /group/$PAWSEY_PROJECT/$USER/dunnart/fc_phase.cfg &> run2.std
         """
 }

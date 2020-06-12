@@ -129,3 +129,6 @@ See final output stats
 
 ## Acknowledgements
 We would like to acknowledge the contribution of the Oz Mammals Genomics Initiative [consortium](https://ozmammalsgenomics.com/consortium/) in the generation of data used for the Dunnart reference genome assembly. The Initiative is supported by funding from Bioplatforms Australia through the Australian Government National Collaborative Research Infrastructure Strategy (NCRIS).
+
+## Note
+We encountered a bug in the 2-asm_falcon ovlp_filtering stage, where preads.m4 had an erroneous '---' at the end of the file. We fixed this by following this github issue: https://github.com/PacificBiosciences/pbbioconda/issues/294 

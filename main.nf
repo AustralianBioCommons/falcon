@@ -1,5 +1,7 @@
 #!/usr/bin/env nextflow
-fasta_ch = Channel.fromPath('subreads.fasta.fofn')
+fasta_ch1 = Channel.fromPath('subreads.fasta.fofn')
+fasta_ch2 = Channel.fromPath('subreads.fasta.fofn')
+fasta_ch3 = Channel.fromPath('subreads.fasta.fofn')
 bam_ch = Channel.fromPath('subreads.bam.fofn')
 hic_ch = Channel.fromPath('F1_bull_test.HiC_R*.fastq.gz')
 
@@ -7,12 +9,12 @@ process fc_run {
     publishDir "${dir}"
 
     input:
-        file x from fasta_ch
+        file x from fasta_ch1
 
     output:
-        file("0-rawreads/*") into rawreads
-        file("1-preads_ovl/*") into preads
-        file("2-asm-falcon/*") into asm
+        file("0-rawreads/") into (rawreads1, rawreads2)
+        file("1-preads_ovl/") into (preads1, preads2)
+        file("2-asm-falcon/") into (asm1, asm2)
 
     script:
         """
@@ -24,8 +26,11 @@ process fc_unzip {
     publishDir "${dir}"
 
     input:
+        file x from rawreads1
+        file x from preads1
+        file x from asm1
         file x from bam_ch
-        file '2-asm-falcon/all_h_ctg.fa' from asm
+        file x from fasta_ch2
 
     output:
         file("3-unzip/*") into unzip
@@ -40,8 +45,13 @@ process fc_phase {
     publishDir "${dir}"
     
     input:
+        file x from rawreads2
+        file x from preads2
+        file x from asm2
+        file("3-unzip/") from unzip
+        file("4-polish/") from polish
         file x from hic_ch
-        file '4-polish/cns_h_ctg.fasta' from polish
+        file x from fasta_ch3
     
     output:
         file("5-phase/*") into phase

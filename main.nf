@@ -18,6 +18,7 @@ process fc_run {
 
     script:
         """
+        sed -i "s/outs.write('/#outs.write('/" ${dir}/nf-work/conda/*/lib/python3.7/site-packages/falcon_kit/mains/ovlp_filter.py
         fc_run /group/$PAWSEY_PROJECT/$USER/dunnart/fc_run.cfg
         """
 }
@@ -38,7 +39,6 @@ process fc_unzip {
 
     script:
         """
-        sed -i "s/outs.write('/#outs.write('/" ${dir}/nf-work/conda/*/lib/python3.7/site-packages/falcon_kit/mains/ovlp_filter.py
         fc_unzip.py /group/$PAWSEY_PROJECT/$USER/dunnart/fc_unzip.cfg &> run1.std
         """
 }

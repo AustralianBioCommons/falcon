@@ -4,6 +4,7 @@ fasta_ch2 = Channel.fromPath('subreads.fasta.fofn')
 fasta_ch3 = Channel.fromPath('subreads.fasta.fofn')
 bam_ch = Channel.fromPath('subreads.bam.fofn')
 hic_ch = Channel.fromPath('F1_bull_test.HiC_R*.fastq.gz')
+dir = "/group/$PAWSEY_PROJECT/$USER/dunnart/"
 
 process fc_run {
     publishDir "${dir}"

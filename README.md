@@ -15,17 +15,18 @@ The tool used in this workflow is:
 ### Link(s)
 
 ### Input(s)
-Data types:
-Fasta (fc_run), bam files (fc_unzip), hi-c files (fc_phase). Hifi data may also be used by adding a flag to the run command (see below).
+#### Data types:
+Fasta (fc_run), bam files (fc_unzip), hi-c files (fc_phase). This release of the pipeline does not support hifi data, but this will come soon.
 
-Files required (excluding nextflow files):
+#### pb-assembly specific files required:
 subreads.fasta.fofn: list of fasta files for analysis. All names must be on one line.
 subreads.bam.fofn: list of bam files for analysis. All names must be on one line.
 subreads.hi-c.fofn: list of hi-c files for analysis. All names must be on one line.
 fc_run.cfg, fc_unzip.cfg, and fc_phase.cfg: files that specify the parameters for pb-assembly
 
-
 ### Parameter(s)
+Parameters are altered via the .cfg files. 
+See https://github.com/PacificBiosciences/pb-assembly for details. 
 
 ### Output(s)
 
@@ -39,8 +40,7 @@ Any comment on major features being introduced, or default/API changes that migh
 Pre-release 2nd July 2020
 
 ### Container availability & engine
-
-Which public registry (Biocontainers, Docker, ..)
+Engine is nextflow version 19.10.0.5170
 
 Any notes on tagging conventions
 

@@ -25,10 +25,13 @@ subreads.hi-c.fofn: list of hi-c files for analysis. All names must be on one li
 fc_run.cfg, fc_unzip.cfg, and fc_phase.cfg: files that specify the parameters for pb-assembly
 
 ### Parameter(s)
-Parameters are altered via the .cfg files. 
+Assembly parameters are altered via the .cfg files. 
 See https://github.com/PacificBiosciences/pb-assembly for details. 
 
+Note that pb-assembly can currently run on only one node. 
+
 ### Output(s)
+pb-assembly outputs many files, which can be used for quality checking as seen the tutorial section. However, the final outputs are 5-phase/output/phased.0.fasta and 5-phase/output/phased.1.fasta. 
 
 ## Diagram
 
@@ -40,7 +43,6 @@ Any comment on major features being introduced, or default/API changes that migh
 Pre-release 2nd July 2020
 
 ### Container availability & engine
-Engine is nextflow version 19.10.0.5170
 
 Any notes on tagging conventions
 
@@ -128,7 +130,7 @@ Miniconda3 - this environment will be activated from the workflow install. Indep
 ### Hardware
 
 - Pawsey [Zeus](https://www.pawsey.org.au/systems/zeus)
-- More to add
+- Single node only
 
 ## Tool install
 
@@ -149,7 +151,7 @@ The Dunnary repository contains the scripts and config files required for runnin
 
 ### Download your raw sequencing data
 
-You will need both the fasta and bam formats of the raw sequencing data. Download them to  your current working directory, which should be the `dunnart/` directory.
+You will need both the fasta and bam formats of the raw sequencing data. Download them to your current working directory, which should be the `dunnart/` directory.
 
 ### Set the fasta and bam filenames in the run script
 
@@ -187,10 +189,13 @@ Once the FALCON set up script has completed running, exit the session.
 ## Help / FAQ / Troubleshooting
 
 ### Note 1
-We encountered a bug in the 2-asm_falcon ovlp_filtering stage, where preads.m4 had an erroneous '---' at the end of the file. We fixed this by following this github issue: https://github.com/PacificBiosciences/pbbioconda/issues/294 
+We encountered a bug in the 2-asm_falcon ovlp_filtering stage, where preads.m4 had an erroneous '---' at the end of the file. We fixed this by following this github issue: https://github.com/PacificBiosciences/pbbioconda/issues/294. This step is now automatically taken care of in the nextflow pipeline.
 
 ### Note 2
-It seems the fofn files need the absoluate path of the bam/fasta files so they can be found from anywhere.
+The fofn files need to have all entries on one line.
+
+### Troubleshooting
+The `all.log` file is useful for checking job progress and identifying which step(s) caused the workflow to fail if troubleshooting is required. This file should be used to guide you to the detailed stderr file for the failed step(s). The detailed log files for each step are in located in the sub-directories of each process (e.g. `nf-work/<nextflowID1>/<nextflowID2>/0-rawreads/build/run-Pccabfacd84af34.bash.strerr`). The slurm log file contains only the nextflow standard output/error, which is generally not very verbose. 
 
 ## License(s)
 

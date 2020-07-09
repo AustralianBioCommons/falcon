@@ -10,7 +10,7 @@ The tool used in this workflow is:
 
 |Tool | Documentation | Optimisation |
 |-----------|--------------------------|------------------|
-|pb-assembly  | README.md | As per paramater settings in each .cfg file |
+|pb-assembly  | README.md | As per parameter settings in each .cfg file |
 
 ### Link(s)
 

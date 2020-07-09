@@ -19,4 +19,4 @@ singularity pull docker://audreystott/pb-assembly:0.0.8-2 &&
 singularity exec -B $HOME,$PWD pb-assembly_0.0.8-2.sif ssh $USER@zeus.pawsey.org.au &&
 
 #submit sbatch script for nextflow run
-sbatch --account=$PAWSEY_PROJECT sbatch_nextflow_container.sh
+sbatch --account=$PAWSEY_PROJECT sbatch_nextflow.sh

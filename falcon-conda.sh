@@ -11,15 +11,15 @@ bam_reads=F1_bull_test.subreads.bam
 ###########################################################################################################################
 
 echo 'Creating .fofn files...'
-echo '$dir/${fasta_reads}' > subreads.fasta.fofn &&
-echo '$dir/${bam_reads}' > subreads.bam.fofn &&
+echo '$dir/${fasta_reads}' > subreads.fasta.fofn
+echo '$dir/${bam_reads}' > subreads.bam.fofn
 
 echo 'Pulling pb-core containers...'
-module load singularity &&
-singularity pull docker://quay.io/biocontainers/pbcore:1.7.1--py27_0 &&
+module load singularity
+singularity pull docker://quay.io/biocontainers/pbcore:1.7.1--py27_0
 
 echo 'Downloading Miniconda3 from Anaconda repo...'
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &&
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
 echo '********************************************************************************************************
 
@@ -34,9 +34,9 @@ Say yes to running conda init...
 
 ********************************************************************************************************'
 
-bash Miniconda3-latest-Linux-x86_64.sh &&
+bash Miniconda3-latest-Linux-x86_64.sh
 echo 'Miniconda3 installation done... removing Miniconda3-latest-Linux-x86_64.sh...'
-rm Miniconda3-latest-Linux-x86_64.sh &&
+rm Miniconda3-latest-Linux-x86_64.sh
 
 echo '********************************************************************************************************
 Falcon set up is complete'

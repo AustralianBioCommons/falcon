@@ -161,7 +161,10 @@ Once the FALCON set up script has completed running, exit the session.
 We encountered a bug in the 2-asm_falcon ovlp_filtering stage, where preads.m4 had an erroneous '---' at the end of the file. We fixed this by following this github issue: https://github.com/PacificBiosciences/pbbioconda/issues/294 
 
 ## Note 2
-It seems the fofn files need the absoluate path of the bam/fasta files so they can be found from anywhere.
+The file names in the fofn inout files need to all be on one line. 
+
+## Note 3
+If you need to re-run the script, make sure you delete the RSA key that was previouysly generated before starting again.
 
 # License(s)
 

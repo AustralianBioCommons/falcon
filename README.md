@@ -21,7 +21,7 @@ Fasta (fc_run), bam files (fc_unzip), hi-C files (fc_phase). This release of the
 #### pb-assembly specific files required:
 subreads.fasta.fofn: list of fasta files for analysis. All names must be on one line.
 
-subreads.bam.fofn: list of bam files for analysis. All names must be on one line.
+subreads.bam.fofn: list of bam files for analysis. All names must be on *seperate* lines.
 
 subreads.hi-c.fofn: list of hi-c files for analysis. All names must be on one line.
 

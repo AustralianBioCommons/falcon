@@ -16,12 +16,12 @@ The tool used in this workflow is:
 
 ### Input(s)
 #### Data types:
-Fasta (fc_run), bam files (fc_unzip), hi-c files (fc_phase). This release of the pipeline does not support hifi data, but this will come soon.
+Fasta (fc_run), bam files (fc_unzip), hi-C files (fc_phase). This release of the pipeline does not support hifi data, but this will come soon.
 
 #### pb-assembly specific files required:
 subreads.fasta.fofn: list of fasta files for analysis. All names must be on one line.
 
-subreads.bam.fofn: list of bam files for analysis. All names must be on one line.
+subreads.bam.fofn: list of bam files for analysis. All names must be on *seperate* lines.
 
 subreads.hi-c.fofn: list of hi-c files for analysis. All names must be on one line.
 
@@ -30,8 +30,6 @@ fc_run.cfg, fc_unzip.cfg, and fc_phase.cfg: files that specify the parameters fo
 ### Parameter(s)
 Assembly parameters are altered via the .cfg files. 
 See https://github.com/PacificBiosciences/pb-assembly for details. 
-
-Note that pb-assembly can currently run on only one node. 
 
 ### Output(s)
 pb-assembly outputs many files, which can be used for quality checking as seen the tutorial section. However, the final outputs are 5-phase/output/phased.0.fasta and 5-phase/output/phased.1.fasta. 
@@ -50,6 +48,8 @@ Pre-release 2nd July 2020
 Any notes on tagging conventions
 
 ## Third party tools / dependencies
+
+Requires Conda and Nextflow to run on Zeus. 
 
 ## Tutorials
 
@@ -133,7 +133,6 @@ Miniconda3 - this environment will be activated from the workflow install. Indep
 ### Hardware
 
 - Pawsey [Zeus](https://www.pawsey.org.au/systems/zeus)
-- Single node only
 
 ## Tool install
 

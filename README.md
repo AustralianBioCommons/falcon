@@ -75,7 +75,7 @@ Jobs completed:
 
 Stats for reads and pre-assembled reads:
 
-    >singularity exec pb-assembly_0.0.8.sif DBstats raw_reads.db
+    >singularity exec pb-assembly_0.0.8.sif DBstats 0-rawreads/build/raw_reads.db
 
     >singularity exec pb-assembly_0.0.8.sif DBstats 1-preads_ovl/build/preads.db 
 
@@ -85,23 +85,23 @@ Check pre-assembly performance:
 
 Check assembly performance:
 
-    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 2-asm-falcon/p_ctg.fasta
+    >python get_asm_stats.py 2-asm-falcon/p_ctg.fasta
 
 #### fc_unzip 
 
 Check haplotype resolution
 
-    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 3-unzip/all_p_ctg.fa 
+    >python get_asm_stats.py 3-unzip/all_p_ctg.fa 
 
-    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 3-unzip/all_h_ctg.fa
+    >python get_asm_stats.py 3-unzip/all_h_ctg.fa
 
     >head 3-unzip/all_h_ctg.paf 
 
 Check phase polishing
 
-    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 4-polish/cns-output/cns_p_ctg.fasta
+    >python get_asm_stats.py 4-polish/cns-output/cns_p_ctg.fasta
    
-    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 4-polish/cns-output/cns_h_ctg.fasta
+    >python get_asm_stats.py 4-polish/cns-output/cns_h_ctg.fasta
 
 
 #### fc_phase
@@ -112,9 +112,9 @@ See haplotig placement file
 
 See final output stats 
 
-    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 5-phase/output/phased.0.fasta
+    >python get_asm_stats.py 5-phase/output/phased.0.fasta
 
-    >singularity exec pbcore_1.7.1--py27_0.sif python pb-assembly/scripts/get_asm_stats.py 5-phase/output/phased.1.fasta 
+    >python get_asm_stats.py 5-phase/output/phased.1.fasta 
 
 ## Tool infrastructure requirements
 

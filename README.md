@@ -91,9 +91,9 @@ Check assembly performance:
 
 Check haplotype resolution
 
-    >python get_asm_stats.py 3-unzip/all_p_ctg.fa 
+    >python get_asm_stats.py 3-unzip/all_p_ctg.fasta 
 
-    >python get_asm_stats.py 3-unzip/all_h_ctg.fa
+    >python get_asm_stats.py 3-unzip/all_h_ctg.fasta
 
     >head 3-unzip/all_h_ctg.paf 
 

@@ -16,7 +16,7 @@ The tool used in this workflow is:
 
 ### Input(s)
 #### Data types:
-Fasta (fc_run), bam files (fc_unzip), hi-C files (fc_phase). This release of the pipeline does not support hifi data, but this will come soon.
+Fasta (fc_run), bam files (fc_unzip), hi-C files (fc_phase). This release of the pipeline does not support hifi data, but this will come soon. Hi-C data it optional. If you only have bam files, but no fasta files, you can use https://github.com/PacificBiosciences/bam2fastx to convert them. 
 
 #### pb-assembly specific files required:
 subreads.fasta.fofn: list of fasta files for analysis. All names must be on one line.

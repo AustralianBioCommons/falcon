@@ -1,0 +1,1 @@
+These are the necessary files for running Falcon/PB-assembly with PBS on NCI. Please note that there are some hard-coded directories that need to be edited for your needs, i.e. your working directory and your temp directory. Please go through and change these as needed.

@@ -5,9 +5,9 @@
 # Running it downloads and installs Conda to run your Falcon commands, and sets up your directory for the workflow to run.
 # It is written specifically for use on Pawsey Supercomputing resources, but can be tailored to other computing resources.
 # If required, change the path to your directory and raw reads here:
-dir=/group/$PAWSEY_PROJECT/$USER/dunnart
-fasta_reads=F1_bull_test.subreads.fasta.gz 
-bam_reads=F1_bull_test.subreads.bam
+dir={{ dir }}
+fasta_reads={{ fasta_reads }}
+bam_reads={{ bam_reads }}
 ###########################################################################################################################
 
 echo 'Creating .fofn files...'

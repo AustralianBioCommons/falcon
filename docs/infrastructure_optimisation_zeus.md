@@ -21,12 +21,12 @@ On Zeus, you will need to run your jobs on a work node; to do so, start an inter
 The Dunnary repository contains the scripts and config files required for running the workflow. Clone it to your current working directory, e.g. /group/$PAWSEY_PROJECT/$USER
 
     >cd /group/$PAWSEY_PROJECT/$USER
-    >git clone https://github.com/audreystott/dunnart.git
-    >cd dunnart
+    >git clone https://github.com/AustralianBioCommons/falcon.git
+    >cd falcon
 
 ### Download your raw sequencing data
 
-You will need both the fasta and bam formats of the raw sequencing data. Download them to your current working directory, which should be the `dunnart/` directory.
+You will need both the fasta and bam formats of the raw sequencing data. Download them to your current working directory, which should be the `falcon/` directory.
 
 ### Set the fasta and bam filenames in the run script
 

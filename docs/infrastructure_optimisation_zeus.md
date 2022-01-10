@@ -135,14 +135,32 @@ Falcon works best on smaller genomes, less than 0.7Gbp. Below this size, it tend
 
 ### Exemplar 1: *halobacterium salinarum*, 28 cores, 112GB memory
 
------------------------------
+| Parameter | Data |
+|--------|----------|
 | Genome size | 2571010 |
 | Wall time | 11:00:36 |
 | CPU time | 23:55:06 |
-| CPU efficiency | 7.76% of 12-20:16:48 core-walltime |
 | Memory Efficiency |  100.61% of 112.00 GB |
+| Number of files produced | XXX |
 
----------------------------------------------
+### Exemplar 2: *Saccharomyces cerevisiae*, yeast 28 cores, 112GB memory
 
+| Parameter | Data |
+|--------|----------|
+| Genome size | 12000000 |
+| Wall time | 01:46:50 |
+| CPU time | 03:54:12|
+| Memory Efficiency | 97.44% of 112.00 GB |
+| Number of files produced | XXX |
+
+### Exemplar 3: *Anabas testudineus*, climbing perch, 28 cores, 112GB memory
+
+| Parameter | Data |
+|--------|----------|
+| Genome size | 660000000 |
+| Wall time | 09:52:33 |
+| CPU time | 3-13:28:05 |
+| Memory Efficiency | 21.53% of 112 GB |
+| Number of files produced | 485,086 |
 
 ## Acknowledgements / citations / credits

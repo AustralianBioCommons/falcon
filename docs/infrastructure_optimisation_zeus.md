@@ -131,7 +131,18 @@ We encountered a bug in the 2-asm_falcon ovlp_filtering stage, where preads.m4 h
 ## Infrastructure usage and benchmarking
 
 ### Summary
+Falcon works best on smaller genomes, less than 0.7Gbp. Below this size, it tends to run with a reasonable wall time (<24 hours) and creates <500,000 small intermediate files for the fc_run and fc_unzip steps combined. Falcon struggled with larger reference datasets due to either exeeding the file number limit on the /scratch partition (1,000,000 file limit per user at Pawsey), or taking too long to perform each step and therefore having a total job time that would run into weeks or months. This appears to be linked to the inefficiency of reading and writing such a large number of small files. Hi-Fi data is meant to reduce some of the computational overhead and may therefore allow Falcon to be used for larger genomes. This remains to be tested in our hands, as of Jan 2022. 
 
-### Exemplar 1: e.g. *Sminthopsis crassicaudata* (Fat-tailed Dunnart) reference genome assembly
+### Exemplar 1: *halobacterium salinarum*, 28 cores, 112GB memory
+
+-----------------------------
+| Genome size | 2571010 |
+| Wall time | 11:00:36 |
+| CPU time | 23:55:06 |
+| CPU efficiency | 7.76% of 12-20:16:48 core-walltime |
+| Memory Efficiency |  100.61% of 112.00 GB |
+
+---------------------------------------------
+
 
 ## Acknowledgements / citations / credits

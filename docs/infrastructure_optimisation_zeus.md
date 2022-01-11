@@ -141,14 +141,20 @@ See SMRT Link release documentation for details about consumables compatibility 
 It might not be obvious which version of `pbgcpp` is required. In this case, you can test each version, working backwards from the most recent, until you find which one works. The steps would be as follows:
 
 ```
-conda activate pb-assembly
-conda install -c bioconda pbgcpp=2.0.2
-<test falcon unzip; if same error, try rolling back to version>
-conda install -c bioconda pbgcpp=2.0.0
-<test falcon unzip; if same error, try rolling back to version>
-conda install -c bioconda pbgcpp=1.9.0
-<test falcon unzip; if same error, try rolling back to version>
-conda install -c bioconda pbgcpp=1.0.0
+> conda activate pb-assembly
+> conda install -c bioconda pbgcpp=2.0.2
+[test falcon unzip; if same error, try rolling back to version]
+
+
+> conda install -c bioconda pbgcpp=2.0.0
+[test falcon unzip; if same error, try rolling back to version]
+
+
+> conda install -c bioconda pbgcpp=1.9.0
+[test falcon unzip; if same error, try rolling back to version]
+
+
+> conda install -c bioconda pbgcpp=1.0.0
 ```
 
 ## Infrastructure usage and benchmarking
